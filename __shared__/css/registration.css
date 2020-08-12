@@ -1,0 +1,76 @@
+* {
+	box-sizing: border-box;
+	font-family: "Lato", sans-serif;
+}
+
+.align-content-xl-center{
+	padding-top: 15%;
+	position: fixed;
+	width: 25%;
+	background-color: black;
+	background-size: cover;
+	height: 100%;
+}
+
+.menu{
+	text-decoration: none;
+	color: white;
+	display: flex;
+	width: 200px;
+	justify-content: center;
+	justify-self: center;
+	border: 1px transparent;
+	padding: 5px;
+	margin-left: 60px;
+}
+
+hr{
+	align-content: center;
+	justify-content: center;
+	color: white;
+	background-color: white;
+}
+
+.column.right{
+	float: right;
+	border:transparent;
+	padding-left: 80px;
+	width: 75%;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+td{
+	padding: 10px;
+	border: 1px transparent;
+}
+
+
+input, textarea{
+	border: 2px solid white;
+	padding: 10px;
+	margin: 5px 0 0 5px;
+	font-size: 17px;
+}
+
+input[type=text], input[type=email]{
+	width: 350px;
+	height: 45px;
+}
+
+body{
+	margin: 0px;
+	font-size: 17px;
+}
+
+::placeholder{
+	color: lightgray;
+	font-family: 'Lato', sans-serif;
+	font-size: 17px;
+}
+
+.btn.btn-black {
+	background-color: #000;
+	color: #fff;
+}
+
