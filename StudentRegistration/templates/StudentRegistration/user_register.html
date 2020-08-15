@@ -4,62 +4,93 @@
     <meta charset="UTF-8">
     {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/user_login.css' %}">
     <title>Login</title>
 
 </head>
+<style>
+    body{
+        background-color: black;
+    }
+    section{
+        text-align: center;
+    }
+    td{
+        padding: 10px;
+    }
+    button{
+        width: 150px;
+    }
+</style>
+
 <body>
-    <div class="sidenav">
-         <div class="login-main-text">
-            <h2>Register</h2>
-            <p>Register from here to access.</p>
+<br><br>
+    <div class="container col-md-8 bg-light" style="border-radius: 10px">
+        <br>
+        <div class="container col-md-6">
+             <section>
+                 <h2>Register</h2>
+                 <p>Register from here to access</p>
+             </section>
          </div>
+        <br>
+        <div class="container col-md-11">
+            {% if messages %}
+                {% for m in messages %}
+                    <div class="alert alert-{% if m.tags == 'error' %}danger{% else %}{{ m.tags }}{% endif %}" role="alert">
+                        {{ m }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+	    </div>
+        <div class="container col-md-12">
+           <form method="post" action="{% url 'StudentRegistration:register_user' %}" class="container col-md-10 ">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+<!--                    <tr>-->
+<!--                        <td>{{ form.username.label }}</td>-->
+<!--                        <td>{{ form.username }}</td>-->
+<!--                    </tr>-->
+
+<!--                    <tr>-->
+<!--                        <td>{{ form.first_name.label }}</td>-->
+<!--                        <td>{{ form.first_name }}</td>-->
+<!--                    </tr>-->
+
+<!--                    <tr>-->
+<!--                        <td>{{ form.last_name.label }}</td>-->
+<!--                        <td>{{ form.last_name }}</td>-->
+<!--                    </tr>-->
+
+<!--                    <tr >-->
+<!--                        <td>{{ form.email.label }}</td>-->
+<!--                        <td>{{ form.email }}</td>-->
+<!--                    </tr>-->
+
+<!--                    <tr>-->
+<!--                        {{ form.password1.error }}-->
+<!--                        <td>{{ form.password1.label }}</td>-->
+<!--                        <td>{{ form.password1 }}</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>{{ form.password2.label }}</td>-->
+<!--                        <td>{{ form.password2 }}</td>-->
+<!--                    </tr>-->
+
+<!--                    <br>-->
+                </table>
+                <br>
+                <div class="container col-md-4">
+                    <button type="submit" value="Register" class="btn btn-secondary">Register</button>
+                </div>
+                   <br><br>
+
+            </form>
+            <br>
+        </div>
+        <br>
     </div>
-      <div class="main">
-         <div class="col-md-6 col-sm-12">
-            <div class="login-form">
-               <form method="post" action="{% url 'StudentRegistration:register_user' %}">
-                   {% csrf_token %}
-                   {{ form.as_p }}
-<!--                   {% if error_message %}-->
-<!--                   <p class="bg-danger p-d ml-b">{{ error_message }}</p>-->
-<!--                   {% endif %}-->
-<!--                  <div>-->
-<!--                      <div style="margin: 20px 20px 20px 0">-->
-<!--                          {{ form.username }}-->
-<!--                      </div>-->
-<!--                  </div>-->
-<!--                   <div>-->
-<!--                      <div style="margin: 20px 20px 20px 0">-->
-<!--                          {{ form.first_name }}-->
-<!--                      </div>-->
-<!--                  </div>-->
-<!--                   <div>-->
-<!--                      <div style="margin: 20px 20px 20px 0">-->
-<!--                          {{ form.last_name }}-->
-<!--                      </div>-->
-<!--                  </div>-->
-<!--                   <div>-->
-<!--                       <div style="margin: 20px 20px 20px 0">-->
-<!--                          {{ form.email }}-->
-<!--                      </div>-->
-<!--                  </div>-->
-<!--                  <div>-->
-<!--                     <div style="margin: 20px 20px 20px 0 ">-->
-<!--                         {{ form.password1.error }}-->
-<!--                         {{ form.password1 }}-->
-<!--                      </div>-->
-<!--                  </div>-->
-<!--                  <div>-->
-<!--                     <div style="margin: 20px 20px 20px 0">-->
-<!--                          {{ form.password2 }}-->
-<!--                      </div>-->
-<!--                  </div>-->
-                  <button type="submit" value="Register" class="btn btn-secondary">Register</button>
-               </form>
-            </div>
-         </div>
-      </div>
+<br><br>
 
 
 </body>

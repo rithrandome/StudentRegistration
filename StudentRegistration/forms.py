@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 
-
 class RegisterUserForm(UserCreationForm):
     # username = forms.CharField(required='True', widget=forms.TextInput(attrs={'class': 'form-control'}))
     # , widget=forms.EmailInput(attrs={'class': 'form-control'})
@@ -23,9 +22,9 @@ class RegisterUserForm(UserCreationForm):
         )
         widgets = {
 
-            'user_name': forms.TextInput(attrs={'class': 'form-control', "placeholder": "User Name *"}),
-            'first_name': forms.TextInput(attrs={'class': 'form-control', "placeholder": "First Name *"}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', "placeholder": "Last Name *"}),
+            'username': forms.TextInput(attrs={'class': 'form-control', "placeholder": "User Name *", 'label': 'User Name'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', "placeholder": "First Name *", 'label': 'FirstName'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', "placeholder": "Last Name *", 'label': 'FirstName'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', "placeholder": "Email *"}),
             'password1': forms.TextInput(attrs={'class': 'form-control', "placeholder": "Password *"}),
             'password2': forms.TextInput(attrs={'class': 'form-control', "placeholder": "Password Confirmation *"}),

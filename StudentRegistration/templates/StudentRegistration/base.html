@@ -6,7 +6,6 @@
 
         {% load static %}
 
-        <link href="{% static 'css/registration.css' %}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 
 
@@ -14,20 +13,27 @@
 
 </head>
 <body>
-	<div class="column left">
-		<div class="align-content-xl-center">
-			<hr style="width:200px;color: white"><br>
-
-			<a class="menu" href="/searchStudentDetails/" title="Home">FIND A STUDENT</a><br>
-			<a class="menu" href="/addStudentInfo/" title="end">REGISTER STUDENT</a><br>
-			<a class="menu" href="/logout/" title="end">LOGOUT</a><br>
-
-			<hr style="width:200px;color: white">
-		</div>
+<div>
+	<div>
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top " style="background-color: #23272b">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand mb-0 h1" href="#">Student Registration</a>
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<div class="navbar-nav">
+			  <a class="nav-link" href="/searchStudentDetails/">Find Student <span class="sr-only">(current)</span></a>
+			  <a class="nav-link" href="/addStudentInfo/">Add Student</a>
+			  <a class="nav-link" href="/logout/">Logout</a>
+			</div>
+		  </div>
+		</nav>
+	</div>
+	<div>
+		{% block content %}
+		{% endblock %}
 	</div>
 
-    {% block content %}
-    {% endblock %}
-
+</div>
 </body>
 </html>

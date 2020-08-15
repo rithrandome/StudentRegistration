@@ -12,7 +12,7 @@ from django.contrib import messages
 @login_required(login_url='/login/')
 def add_StudentInfo(request):
 
-    template = "StudentRegistration/registration.html"
+    template = "StudentRegistration/add_student.html"
 
     if request.method == 'POST':
         form = StudentInfoForm(request.POST)
@@ -20,10 +20,10 @@ def add_StudentInfo(request):
             form.save()
             print("Form is submitted...")
             messages.success(request, 'Student Info is saved successfully !')
-            return render(request, 'StudentRegistration/registration.html', {'form': form})
+            return redirect('/addStudentInfo/')
     else:
         form = StudentInfoForm()
-    return render(request, template, {'form': form})
+    return render(request, template, {'form': form}, messages)
 
 
 def UserLogin(request):
@@ -34,7 +34,7 @@ def UserLogin(request):
         # user = authenticate(username=username, password=password)
         # if user is not None:
         #     login(request, user)
-        #     return render(request, 'StudentRegistration/registration.html')
+        #     return render(request, 'StudentRegistration/add_student.html')
         # else:
         #     return render(request, "StudentRegistration/user_login.html",
         #                   {'error_message': 'Incorrect username and / or password.'})
@@ -68,7 +68,8 @@ def UserRegister(request):
                 })
             else:
                 form.save()
-                return redirect('/login/')
+                messages.success(request, "You have Successfully Registered ! ")
+                return redirect('/login/', messages)
         #
         #
         # form = RegisterUserForm(request.POST)
@@ -138,7 +139,7 @@ def delete_StudentDetails(request, pk):
 
 def edit_StudentDetails(request, pk):
 
-    template = 'StudentRegistration/registration.html'
+    template = 'StudentRegistration/add_student.html'
     print('something')
     student = get_object_or_404(StudentInfo, pk=pk)
     if request.method == 'POST':
