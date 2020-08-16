@@ -26,7 +26,7 @@ class RegisterUserForm(UserCreationForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control', "placeholder": "First Name *", 'label': 'FirstName'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', "placeholder": "Last Name *", 'label': 'FirstName'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', "placeholder": "Email *"}),
-            'password1': forms.TextInput(attrs={'class': 'form-control', "placeholder": "Password *"}),
+            'password1': forms.TextInput(attrs={'class': 'form-control', "placeholder": "Password *"} ),
             'password2': forms.TextInput(attrs={'class': 'form-control', "placeholder": "Password Confirmation *"}),
 
         }
